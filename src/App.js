@@ -7,8 +7,8 @@ import Header from './components/Header';
 function App() {
 
 const [word, setWord] = useState('')
- 
-
+const array = Array.from(word)
+console.log(array)
 
   useEffect(() => {
     axios.get('https://random-word-api.herokuapp.com/word?number=1', {
@@ -22,7 +22,23 @@ const [word, setWord] = useState('')
 
   },[])
 
-
+useEffect(() =>{
+  
+ 
+  const handleClick = (event) => {
+    const {key, keyCode} = event;
+   if(keyCode >= 65 && keyCode <= 90){
+     for(let i = 0; i < word.length; i++){
+       if(array[i] == key.toUpperCase()){
+         
+       }
+     }
+   }
+    
+  }
+  window.addEventListener('keydown', handleClick);
+  return () => window.removeEventListener('keydown', handleClick)
+})
   return (
     <div className="App">
       <Header />

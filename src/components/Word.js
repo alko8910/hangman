@@ -4,7 +4,6 @@ import Letter from './Letter'
 const Word = (word) => {
     const wordToCreateUnderlines = (word.word);
     const array = Array.from(word.word)
-    console.log(array)
         
     return (
         <div className='word'>
@@ -13,4 +12,4 @@ const Word = (word) => {
     )
 }
 
-export default Word
+export default Word;
