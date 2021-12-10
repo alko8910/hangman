@@ -1,5 +1,6 @@
 body {
   background-color: #00bffe;
+  
 }
 
 .header{
@@ -7,7 +8,11 @@ body {
 }
 .word {
   display: flex;
-  
+ /* position: absolute;*/
+ position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 .letter {
@@ -15,4 +20,15 @@ body {
   width: 50px;
   height: 50px;
   margin-left: 15px;
+  padding-top: 30px;
+  color: white;
+  text-align: center;
+  font-size: xx-large;
+}
+
+.wrong-letter {
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  margin: 0 auto;
 }

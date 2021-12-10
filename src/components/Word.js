@@ -1,13 +1,19 @@
 import React from 'react'
 import Letter from './Letter'
 
-const Word = (word) => {
+const Word = ({word, correctLetter}) => {
     const wordToCreateUnderlines = (word.word);
-    const array = Array.from(word.word)
+    const arr = Array.from(word)
         
     return (
         <div className='word'>
-            {array.map((arr, i) => <Letter  key={i}/> )}
+            {arr.map((letter, i) => {
+                return (
+                    <span className='letter' key={i}>
+                        {correctLetter.includes(letter) ? letter : ''}
+                    </span>
+                )
+            })}
         </div>
     )
 }
