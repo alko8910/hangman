@@ -2,7 +2,7 @@ import React from 'react'
 
 const Figure = ({wrongLetter}) => {
     return (
-        <div>
+        
             <svg className='figure'>
                 <line x1="60" y1="20" x2="140" y2="20" />
                 <line x1="140" y1="20" x2="140" y2="50" />
@@ -31,7 +31,7 @@ const Figure = ({wrongLetter}) => {
                     <line x1="140" y1="150" x2="160" y2="180" />
                 }
             </svg>
-        </div>
+        
     )
 }
 

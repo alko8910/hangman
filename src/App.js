@@ -25,35 +25,39 @@ function App() {
     .catch(err => console.log(err))
   },[newGameClick])
   
- 
+
   useEffect(() =>{
-    const handleClick = (event) => {
-      const {key, keyCode} = event;
-      const keyToUpperCase = key.toUpperCase();
-    if(keyCode >= 65 && keyCode <= 90){
-
-        if(correctLetter.length === word.split('').length - 1){
-          console.log('aa')
-        }
-     
-      if(wrongLetter.includes(keyToUpperCase) || correctLetter.includes(keyToUpperCase)){
-        alert('You have already entered this letter')
-        return;
-      
-      } else if (!array.includes(key.toUpperCase())){
-        setWrongLetter(wrongLetter + keyToUpperCase)
-      }
-
-      for(let i = 0; i < word.length; i++){
-        if(array[i] === keyToUpperCase){
-          setCorrectLetter(currentLetters => [...currentLetters, array[i]])
-        }
-      }
-      } else {
-      return;
-    }
     
+      const handleClick = (event) => {
+        const {key, keyCode} = event;
+        const keyToUpperCase = key.toUpperCase();
+        if ( wrongLetter.length < 6 && correctLetter.length !== word.split('').length) {
+          if(keyCode >= 65 && keyCode <= 90){
+  
+          if(correctLetter.length === word.split('').length - 1){
+            console.log('aa')
+          }
+       
+        if(wrongLetter.includes(keyToUpperCase) || correctLetter.includes(keyToUpperCase)){
+          alert('You have already entered this letter')
+          return;
+        
+        } else if (!array.includes(keyToUpperCase)){
+          setWrongLetter(wrongLetter + keyToUpperCase)
+        }
+  
+        for(let i = 0; i < word.length; i++){
+          if(array[i] === keyToUpperCase){
+            setCorrectLetter(currentLetters => [...currentLetters, array[i]])
+          }
+        }
+        } else {
+        return;
+      }
+      
+      }
     }
+   
     window.addEventListener('keydown', handleClick);
     return () => window.removeEventListener('keydown', handleClick)
   })
@@ -67,11 +71,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <div>
         <Word 
         word={word}
         correctLetter={correctLetter} />
-      </div>
+ 
       <div className='wrong-letter'>
         { (wrongLetter.length > 0 && wrongLetter.length < 6 && correctLetter.length !== word.split('').length) &&
           `Wrong: ${wrongLetter.split('')}`
