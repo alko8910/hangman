@@ -1,11 +1,10 @@
 import React from 'react'
 
-
 const Word = ({word, correctLetter}) => {
     const arr = Array.from(word)
-        
+
     return (
-        <div className='word' style={{height:'100px'}}>
+        <div className='word'>
             {arr.map((letter, i) => {
                 return (
                     <span className='letter' key={i}>
@@ -16,5 +15,4 @@ const Word = ({word, correctLetter}) => {
         </div>
     )
 }
-
 export default Word;

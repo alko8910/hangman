@@ -71,9 +71,10 @@ function App() {
   return (
     <div className="App">
       <Header />
-        <Word 
+      <Word 
+        correctLetter={correctLetter} 
         word={word}
-        correctLetter={correctLetter} />
+      />
  
       <div className='wrong-letter'>
         { (wrongLetter.length > 0 && wrongLetter.length < 6 && correctLetter.length !== word.split('').length) &&
