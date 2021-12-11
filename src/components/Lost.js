@@ -8,8 +8,8 @@ const Lost = ({word, newGame}) => {
                     Unfortunately you lost.
                 </div>
                 <div>
-                ...the word was:
-                 <div >{word}</div>
+                    ...the word was:
+                    <div >{word}</div>
                 </div>
                 <div>
                     <button onClick={newGame}>

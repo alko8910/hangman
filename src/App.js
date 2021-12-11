@@ -15,8 +15,6 @@ function App() {
   const [wrongLetter, setWrongLetter] = useState([]);
   const [newGameClick, setNewGameClick] = useState(true);
 
-  //const [arrayForShowLetter, setArrayForShowLetter] = useState(createNullArray(array.length))
- 
   useEffect(() => {
     axios.get('https://random-word-api.herokuapp.com/word?number=1', {
       
@@ -51,11 +49,8 @@ function App() {
           setCorrectLetter(currentLetters => [...currentLetters, array[i]])
         }
       }
-
-      
-      
-    } else {
-      alert('You must enter a letter beetwen A and Z')
+      } else {
+      return;
     }
     
     }
@@ -71,26 +66,26 @@ function App() {
 
   return (
     <div className="App">
-      {word}
       <Header />
       <div>
-       
-      <Word 
-      word={word}
-      correctLetter={correctLetter} />
+        <Word 
+        word={word}
+        correctLetter={correctLetter} />
       </div>
       <div className='wrong-letter'>
-      { (wrongLetter.length > 0 && wrongLetter.length < 6 && correctLetter.length !== word.split('').length) &&
-         `Wrong: ${wrongLetter.split('')}`
-   }  </div>
+        { (wrongLetter.length > 0 && wrongLetter.length < 6 && correctLetter.length !== word.split('').length) &&
+          `Wrong: ${wrongLetter.split('')}`
+        }  
+      </div>
 
       {
         wrongLetter.length === 6 &&
         <Lost word={word} newGame={newGame}/>
       }
-    { (correctLetter.length === word.split('').length) &&
-      <Won newGame={newGame}/>
-    }
+      { 
+        (correctLetter.length === word.split('').length) &&
+        <Won newGame={newGame}/>
+      }
       
       <Figure wrongLetter={wrongLetter}/>
     </div>
